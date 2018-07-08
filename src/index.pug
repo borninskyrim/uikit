@@ -1,0 +1,15 @@
+-var img1 = require('./img/1.png')
+-var img2 = require('./img/2.png')
+mixin tooltip(name,job,img='#')
+    div
+      div.profile
+        img.photo(src=img)
+        div.tooltip
+          p.name= name
+          p.job= job
+      
++tooltip('John Smith','Ux Designer',img1)
++tooltip('Sarah Brown','Developer',img2)
++tooltip('Andrey Brown','Developer',img2)
++tooltip('Andrey Brown','Developer',img1)
+
