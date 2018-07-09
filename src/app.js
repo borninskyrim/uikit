@@ -26,11 +26,11 @@ window.onclick = e => {
             ev.pageY > elemtop && ev.pageY < elembottom) {
             circlee.classList.add('down');
             pressed = true;
-            plot.style.left = ev.pageX - offset + 'px';
-            plot.style.top = ev.pageY - offset + 'px';
-            console.log('X:'+ev.pageX+ ' Y:'+ ev.pageY + ' buttonX '+ circlee.offsetLeft);    
+            plot.style.left = ev.pageX - circlee.offsetLeft - offset + 'px';
+            plot.style.top = ev.pageY - circlee.offsetTop - offset + 'px';
+            console.log('X:' + ev.pageX + ' Y:' + ev.pageY + ' buttonX ' + circlee.offsetLeft);
         }
-        
+
 
     }, false);
 
@@ -44,5 +44,3 @@ window.onclick = e => {
 
 
 }
-
-
