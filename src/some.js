@@ -1,18 +1,12 @@
-import css from "./style.styl";
-
-;;;
-(function () {
+/*function circlePlot() {
+   
     var plot = document.createElement('div'),
         pressed = false;
 
     plot.id = 'lookatmeiamhere';
     //document.body.appendChild(plot);
     var circlee = document.getElementsByClassName('circled_button');
-
-
-
     circlee[0].appendChild(plot);
-
     var offset = plot.offsetWidth / 2;
     var elemleft = circlee[0].offsetLeft;
     var elemright = circlee[0].offsetLeft + circlee[0].offsetWidth;
@@ -37,8 +31,9 @@ import css from "./style.styl";
         circlee[0].classList.remove('down');
         pressed = false;
     }, false);
-
-
-
-
-})();
+}
+*/
+var some = function(){
+     console.log('clicked');
+}
+some();
