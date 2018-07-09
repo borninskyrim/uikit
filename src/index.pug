@@ -2,12 +2,17 @@
 -var img2 = require('./img/2.png')
 
 include ./modules/profile_tooltip/tooltip
-
+mixin circled_button(id,content)
+  button.circled_button(id=id)= content
+    div.some
+   
+  
+  
 +tooltip('John Smith','Ux Designer',img1)
 +tooltip('Sarah Brown','Developer',img2)
 
-
-button.circled_button hello2
-button.circled_button hello
- 
-button.circled_button hello2
+script 
+  include some.js
++circled_button('id1','hello')
++circled_button('id2','bye')
++circled_button('id3','zye')

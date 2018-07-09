@@ -1,44 +1,48 @@
 import css from "./style.styl";
-
-;;;
-(function () {
-    var plot = document.createElement('div'),
-        pressed = false;
-
-    plot.id = 'lookatmeiamhere';
-    //document.body.appendChild(plot);
-    var circlee = document.getElementsByClassName('circled_button');
+var currentItem;
 
 
+window.onclick = e => {
 
-    circlee[0].appendChild(plot);
-
-    var offset = plot.offsetWidth / 2;
-    var elemleft = circlee[0].offsetLeft;
-    var elemright = circlee[0].offsetLeft + circlee[0].offsetWidth;
-    var elemtop = circlee[0].offsetTop;
-    var elembottom = circlee[0].offsetTop + circlee[0].offsetHeight;
-
+    if (e.target.className === 'circled_button') {
+        currentItem = e.target;
+        console.log(currentItem.id, currentItem);
+        var plot = document.createElement('div');
+        plot.className = 'circlePlot';
+        var pressed = false;
+        var circlee = document.getElementById(currentItem.id);
+        circlee.appendChild(plot);
+        if (circlee.childElementCount > 1)
+            circlee.removeChild(circlee.childNodes[1]);
+        console.log(circlee.childNodes);
+        var offset = plot.offsetWidth / 2;
+        var elemleft = circlee.offsetLeft;
+        var elemright = circlee.offsetLeft + circlee.offsetWidth;
+        var elemtop = circlee.offsetTop;
+        var elembottom = circlee.offsetTop + circlee.offsetHeight;
+    }
     document.addEventListener('mousedown', function (ev) {
-        //document.body.classList.add('down');
         if (ev.pageX > elemleft && ev.pageX < elemright &&
             ev.pageY > elemtop && ev.pageY < elembottom) {
-            circlee[0].classList.add('down');
+            circlee.classList.add('down');
             pressed = true;
             plot.style.left = ev.pageX - offset + 'px';
             plot.style.top = ev.pageY - offset + 'px';
-
+            console.log('X:'+ev.pageX+ ' Y:'+ ev.pageY + ' buttonX '+ circlee.offsetLeft);    
         }
+        
+
     }, false);
 
 
     document.addEventListener('mouseup', function (ev) {
-        //document.body.classList.remove('down');
-        circlee[0].classList.remove('down');
+        circlee.classList.remove('down');
         pressed = false;
     }, false);
 
 
 
 
-})();
+}
+
+

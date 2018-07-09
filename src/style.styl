@@ -8,13 +8,14 @@
         border none
         background-color #4eb7a8
         cursor url('img/hand.png'), auto
+        clip-path polygon(100%,100%,100%,100%)
         overflow hidden
     button.circled_button:active
         outline: none;
     button.circled_button:focus
         outline: none;
    
-    #lookatmeiamhere
+    .circlePlot
         corsor pointer
         background-color red
         width 48px
@@ -25,9 +26,15 @@
         transition opacity 0s
         transform scale(0.5,0.5)
         background-clip content-box
-    .down #lookatmeiamhere
+    .down  .circlePlot
         transform scale(1,1)
         opacity .7
         transition-duration 0.5s
         background-origin content-box
+    .some
+        background-color white
+        width 40px
+        height 40px
+        border 1px solid black
+        border-radius 50%
         
