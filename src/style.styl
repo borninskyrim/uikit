@@ -1,36 +1,75 @@
 
-    @import './modules/profile_tooltip/tooltip'
-   
-    .circled_button
-        margin-left 20px
-        width 118px
-        height 32px
-        border none
-        background-color #4eb7a8
-        cursor url('img/hand.png'), auto
-        position relative
-        clip-path polygon(100%,100%,100%,100%)
-        overflow hidden
-    button.circled_button:active
-        outline: none;
-    button.circled_button:focus
-        outline: none;
-   
-    .circlePlot
-        corsor pointer
-        background-color red
-        width 48px
-        height 48px
-        opacity 0.0
-        position absolute
-        border-radius 100px
-        transition opacity 0s
-        transform scale(0.5,0.5)
-        background-clip content-box
-    .down  .circlePlot
-        transform scale(1,1)
-        opacity .7
-        transition-duration 0.5s
-        background-origin content-box
-   
-        
+@import './modules/profile_tooltip/tooltip';
+@import './modules/buttons/circled_button';
+
+circular-progress(maxPercent, percent, color-bar, color-back) {
+    increment = (360 / maxPercent);
+    half = round((maxPercent / 2));
+    background-image = '';
+
+    if (percent < half) {
+        nextdeg = 90deg + (increment * percent);
+        background-image = 'linear-gradient(90deg,%s 50%, transparent 50%, transparent),
+linear-gradient(%s,%s 50%,%s 50%,%s)' % (color-back nextdeg color-bar color-back color-back);
+    } else {
+        nextdeg = -90deg + (increment * (percent - half));
+        background-image = 'linear-gradient(%s,%s 50%, transparent 50%, transparent),
+linear-gradient(270deg, %s 50%, %s 50%, %s)' % (nextdeg color-bar color-bar color-back color-back);
+    }
+
+    return unquote(background-image);
+}
+
+percent-to-show = 99;
+
+somefunc(var1, var2, var3) {
+    content-s = '';
+    content-s = 'Hello %s z-z %s %s ' % (unquote(var1) unquote(var2) unquote(var3));
+    return content-s;
+}
+
+.circular-progress {
+    content: "'%s'" % somefunc('zac', 'Zig', 'Zero');
+    background-image: circular-progress(100, percent-to-show, #03A9F4, #E0E0E0);
+    border-radius: 50%;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    height: 200px;
+    margin: 2em auto;
+    position: relative;
+    width: 200px;
+    transition: all 0.3s linear;
+
+    &::before {
+        background-color: #FAFAFA;
+        border-radius: 50%;
+        color: rgba(black, 0.54);
+        content: "'%s%'" % percent-to-show;
+        font-size: 32px;
+        font-weight: bold;
+        height: 100%;
+        line-height: 200px;
+        position: absolute;
+        text-align: center;
+        top: 0;
+        transform: scale(0.87);
+        width: 100%;
+    }
+}
+
+setprogress(percent) 
+    background-image: circular-progress(100, percent, #03A9F4, #E0E0E0);
+
+    &::before 
+        content: "'%s%'" % percent;
+    
+
+
+.first 
+    setprogress(75);
+
+
+.second 
+    setprogress(23);
+
+.third
+    setprogress(0);

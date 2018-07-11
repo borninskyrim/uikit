@@ -2,45 +2,33 @@ import css from "./style.styl";
 var currentItem;
 
 
-window.onclick = e => {
+window.onmousedown = e => {
 
     if (e.target.className === 'circled_button') {
         currentItem = e.target;
-        console.log(currentItem.id, currentItem);
-        var plot = document.createElement('div');
-        plot.className = 'circlePlot';
-        var pressed = false;
-        var circlee = document.getElementById(currentItem.id);
-        circlee.appendChild(plot);
-        if (circlee.childElementCount > 1)
-            circlee.removeChild(circlee.childNodes[1]);
-        console.log(circlee.childNodes);
-        var offset = plot.offsetWidth / 2;
-        var elemleft = circlee.offsetLeft;
-        var elemright = circlee.offsetLeft + circlee.offsetWidth;
-        var elemtop = circlee.offsetTop;
-        var elembottom = circlee.offsetTop + circlee.offsetHeight;
+        highlight(currentItem, e);
+    } else if (e.target.className === 'circlePlot') {
+        currentItem = e.target.parentElement;
+        highlight(currentItem, e);
     }
-    document.addEventListener('mousedown', function (ev) {
-        if (ev.pageX > elemleft && ev.pageX < elemright &&
-            ev.pageY > elemtop && ev.pageY < elembottom) {
-            circlee.classList.add('down');
-            pressed = true;
-            plot.style.left = ev.pageX - circlee.offsetLeft - offset + 'px';
-            plot.style.top = ev.pageY - circlee.offsetTop - offset + 'px';
-            console.log('X:' + ev.pageX + ' Y:' + ev.pageY + ' buttonX ' + circlee.offsetLeft);
-        }
+}
 
-
-    }, false);
-
-
-    document.addEventListener('mouseup', function (ev) {
-        circlee.classList.remove('down');
+function highlight(item, e) {
+    var plot = document.createElement('div');
+    plot.className = 'circlePlot';
+    var pressed = false;
+    var circle = document.getElementById(currentItem.id);
+    circle.appendChild(plot);
+    if (circle.childElementCount > 1)
+        circle.removeChild(circle.childNodes[1]);
+    //console.log(circlee.childNodes);
+    var offset = plot.offsetWidth / 2;
+    circle.classList.add('down');
+    pressed = true;
+    plot.style.left = e.pageX - circle.offsetLeft - offset + 'px';
+    plot.style.top = e.pageY - circle.offsetTop - offset + 'px';
+    window.onmouseup = e => {
+        circle.classList.remove('down');
         pressed = false;
-    }, false);
-
-
-
-
+    }
 }

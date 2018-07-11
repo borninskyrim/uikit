@@ -37,4 +37,3 @@
 var some = function(){
      console.log('clicked');
 }
-*/

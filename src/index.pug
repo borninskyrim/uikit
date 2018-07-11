@@ -2,9 +2,7 @@
 -var img2 = require('./img/2.png')
 
 include ./modules/profile_tooltip/tooltip
-mixin circled_button(id,content)
-  button.circled_button(id=id)= content
-   
+include ./modules/buttons/circled_button
   
   
 +tooltip('John Smith','Ux Designer',img1)
@@ -15,3 +13,7 @@ script
 +circled_button('id1','hello')
 +circled_button('id2','bye')
 +circled_button('id3','zye')
+
+.circular-progress.first
+.circular-progress.second
+.circular-progress.third
