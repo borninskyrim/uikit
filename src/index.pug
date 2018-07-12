@@ -3,8 +3,9 @@
 
 include ./modules/profile_tooltip/tooltip
 include ./modules/buttons/circled_button
-  
-  
+include ./modules/progress_bar/progress_bar
+include ./modules/pie_chart/pie_chart
+
 +tooltip('John Smith','Ux Designer',img1)
 +tooltip('Sarah Brown','Developer',img2)
 
@@ -14,6 +15,8 @@ script
 +circled_button('id2','bye')
 +circled_button('id3','zye')
 
-.circular-progress.first
-.circular-progress.second
-.circular-progress.third
++progress_bar('first')
+
+
+-numPies = 1,2,3,4,5,6;
++drawPie(1,2,3,4,5,6)
