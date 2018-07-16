@@ -1,81 +1,70 @@
-.pieContainer {
-    height: 150px;
-    margin-left: 30px;
-    position: relative;
-}
+pieSize = 200px;
+innerCircleSize = pieSize - pieSize / 100 * 20;
+offset = (pieSize / 10);
 
-.pieBackground {
-    position: absolute;
-    width: outerRing_Size;
-    height: outerRing_Size;
-    border-radius: 75px;
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
-    width: 0;
-}
-outerRing_Size = 150px;
-.pie {
-   // transition: all 1s;
-    position: absolute;
-    width: outerRing_Size;
-    height: outerRing_Size;
-    border-radius: 75px;
-    clip: rect(0px, 75px, 150px, 0px);
-}
+.pieContainer
+    height pieSize;
+    position relative;
 
-.hold {
-    position: absolute;
-    width: outerRing_Size;
-    height: outerRing_Size;
-    border-radius: 75px;
-    clip: rect(0px, 150px, 150px, 75px);
-}
+.pieBackground
+    position absolute;
+    width pieSize;
+    height pieSize;
+    border-radius pieSize;
+    box-shadow 0px 0px 8px rgba(0, 0, 0, 0.5);
+    width 0;
 
-drawPie(pieColors, slices) {
+.pie
+    position absolute;
+    width pieSize;
+    height pieSize;
+    border-radius pieSize;
+    clip rect(0px, (pieSize / 2), pieSize, 0px);
+
+.hold
+    position absolute;
+    width pieSize;
+    height pieSize;
+    border-radius pieSize;
+    clip rect(0px, pieSize, pieSize, (pieSize / 2));
+
+drawPie(pieColors, slices)
     i = 2;
     s = 1;
     offset = (slices[0] / 100) * 360;
 
-    if (sum(slices) < 100) {
+    if (sum(slices) < 100)
         lastItem = 100 - sum(slices);
         push(slices, lastItem);
-        push(pieColors,#000);
-    }
+        push(pieColors, #000);
 
-    & :nth-child({i}) {
-        & :nth-child(1) {
-            background-color: pieColors[0];
+    & :nth-child({i})
+        & :nth-child(1)
+            background-color pieColors[0];
             angle = (slices[0] / 100) * 360;
-            transform: rotate(angle * 1deg);
-        }
-    }
+            transform rotate(angle * 1deg);
 
-    for color in 2 .. length(pieColors) {
-        & :nth-child({i + 1}) {
-            transform: rotate(offset * 1deg);
+    for color in 2 .. length(pieColors)
+        & :nth-child({i + 1})
+            transform rotate(offset * 1deg);
 
-            & :nth-child(1) {
-                background-color: pieColors[s];
+            & :nth-child(1)
+                background-color pieColors[s];
                 angle = (slices[s] / 100) * 360;
-                transform: rotate(round(angle)*1deg);
-            }
-        }
+                transform rotate(round(angle) * 1deg);
 
         angle = (slices[s] / 100) * 360;
         offset = round(offset + angle);
         i = i + 1;
         s = s + 1;
-    }
-}
 
-.innerCircle {
-    position: absolute;
-    width: 120px;
-    height: 120px;
-    background-color: white;
-    border-radius: 60px;
-    top: 15px;
-    left: 15px;
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5) inset;
-    color: white;
-    
-}
+.innerCircle
+    position absolute;
+    width innerCircleSize;
+    height innerCircleSize;
+    background-color white;
+    border-radius 50%;
+    top offset;
+    left offset;
+    box-shadow 0px 0px 8px rgba(0, 0, 0, 0.5) inset;
+    color white;

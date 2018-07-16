@@ -1,31 +1,34 @@
 .circled_button
-        margin-left 20px
-        width 118px
-        height 32px
-        border none
-        background-color #4eb7a8
-        cursor url('img/hand.png'), auto
-        position relative
-        clip-path polygon(100%,100%,100%,100%)
-        overflow hidden
-        border-radius 5px
-    button.circled_button:active
-        outline: none;
-    button.circled_button:focus
-        outline: none;
-   
-    .circlePlot
-        corsor pointer
-        background-color red
-        width 48px
-        height 48px
-        opacity 0.0
-        position absolute
-        border-radius 100px
-        transition opacity 0.3s
-        background-clip content-box
-    .down  .circlePlot
-        transform scale(1,1)
-        opacity .7
-        transition-duration 0.5s
-        background-origin content-box
+    margin-left 20px;
+    width 118px;
+    height 32px;
+    border none;
+    background-color #4eb7a8;
+    cursor url('img/hand.png'), auto;
+    position relative;
+    clip-path polygon(100%, 100%, 100%, 100%);
+    overflow hidden;
+    border-radius 5px;
+
+button.circled_button:active
+    outline none;
+
+button.circled_button:focus
+    outline none;
+
+.circlePlot
+    corsor pointer;
+    background-color red;
+    width 48px;
+    height 48px;
+    opacity 0;
+    position absolute;
+    border-radius 100px;
+    transition opacity 0.3s;
+    background-clip content-box;
+
+.down .circlePlot
+    transform scale(1, 1);
+    opacity 0.7;
+    transition-duration 0.5s;
+    background-origin content-box;

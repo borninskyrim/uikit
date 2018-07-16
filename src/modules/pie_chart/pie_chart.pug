@@ -1,5 +1,5 @@
-mixin drawPie(...items)
-    .pieContainer(class= 'firstPie')
+mixin drawPie(name,...items)
+    .pieContainer(class= name)
         .pieBackground
         each item in items
             .hold

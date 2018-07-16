@@ -3,15 +3,17 @@
 @import './modules/buttons/circled_button';
 @import './modules/progress_bar/progress_bar';
 @import './modules/pie_chart/pie_chart';
-
-
+@import './modules/calendar/jsCalendar';
 pieSlice = 8.3, 16.6, 33.3, 2.7, 19.4, 19.4;
-
-
-
 pieColors = #1b458b, #0a0, #f80, #08f, #a04, #ffd700;
 
-.firstPie {
+.firstPie
     drawPie(pieColors, pieSlice);
-    
-    }
+
+.cont1
+    display flex;
+    flex-direction row;
+    width 30%;
+    justify-content space-around;
+    align-items center;
+

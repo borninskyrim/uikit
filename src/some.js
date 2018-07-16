@@ -34,6 +34,8 @@
     }, false);
 }
 */
-var some = function(){
-     console.log('clicked');
-}
+
+
+//shit.style.width = 0 +'px';
+//shit.style.height = 0 +'px';
+//shit.style.backgroundColor = 'black';

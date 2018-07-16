@@ -1,22 +1,23 @@
 -var img1 = require('./img/1.png')
 -var img2 = require('./img/2.png')
-
+-numPies = 1,2,3,4,5,6;
 include ./modules/profile_tooltip/tooltip
 include ./modules/buttons/circled_button
 include ./modules/progress_bar/progress_bar
 include ./modules/pie_chart/pie_chart
+include ./modules/calendar/jsCalendar
 
 +tooltip('John Smith','Ux Designer',img1)
 +tooltip('Sarah Brown','Developer',img2)
 
-script 
+script(src= 'some.js')
   include some.js
 +circled_button('id1','hello')
 +circled_button('id2','bye')
 +circled_button('id3','zye')
+.cont1
+  +progress_bar('first')
+  +progress_bar('second')
+  +drawPie('firstPie',1,2,3,4,5,6)
 
-+progress_bar('first')
-
-
--numPies = 1,2,3,4,5,6;
-+drawPie(1,2,3,4,5,6)
++jsCalendar
